@@ -1,4 +1,6 @@
-export const Questions: Questions[] = [
+import type { Question } from "./quiz";
+
+export const QUESTIONS: Question[] = [
     {
         question: "What does HTML stand for?",
         options: [
@@ -7,7 +9,7 @@ export const Questions: Questions[] = [
             "Home Tool Markup Language",
             "High Text Machine Language"
         ],
-        correct: 1,
+        correctAnswer: 1,
     },
     {
         question: "Which tag is used to insert an image in an HTML page?",
@@ -17,7 +19,7 @@ export const Questions: Questions[] = [
             "<src>",
             "<picture>"
         ],
-        correct: 1,
+        correctAnswer: 0,
     },
     {
         question: "How do you write a comment in HTML?",
@@ -27,7 +29,7 @@ export const Questions: Questions[] = [
             "<!-- This is a comment -->",
             "# This is a comment"
         ],
-        correct: 1,
+        correctAnswer: 2,
     },
     {
         question: "What does the CSS property 'color' do?",
@@ -37,7 +39,7 @@ export const Questions: Questions[] = [
             "Change the text size",
             "Change the background"
         ],
-        correct: 1,
+        correctAnswer: 1,
     },
     {
         question: "Which tag is used to create a hyperlink?",
@@ -47,7 +49,7 @@ export const Questions: Questions[] = [
             "<href>",
             "<hyperlink>"
         ],
-        correct: 1,
+        correctAnswer: 0,
     },
     {
         question: "Which CSS selector targets all <p> elements inside a div?",
@@ -57,7 +59,7 @@ export const Questions: Questions[] = [
             "div + p",
             "div p"
         ],
-        correct: 1,
+        correctAnswer: 3,
     },
     {
         question: "How do you make text bold in CSS?",
@@ -67,7 +69,7 @@ export const Questions: Questions[] = [
             "font: bold;",
             "style: bold;"
         ],
-        correct: 1,
+        correctAnswer: 0,
     },
     {
         question: "Which HTML attribute makes a link open in a new tab?",
@@ -77,7 +79,7 @@ export const Questions: Questions[] = [
             'open="new"',
             'window="blank"'
         ],
-        correct: 1,
+        correctAnswer: 1,
     },
     {
         question: "Which CSS property turns an element into a flexbox container?",
@@ -87,7 +89,7 @@ export const Questions: Questions[] = [
             "flexbox: true;",
             "container: flex;"
         ],
-        correct: 1,
+        correctAnswer: 1,
     },
     {
         question: "How do you center an element horizontally using Flexbox?",
@@ -97,7 +99,7 @@ export const Questions: Questions[] = [
             "flex-align: center;",
             "text-align: center;"
         ],
-        correct: 1,
+        correctAnswer: 0,
     },
     {
         question: "Which of these HTML tags is semantic?",
@@ -107,7 +109,7 @@ export const Questions: Questions[] = [
             "<section>",
             "<font>"
         ],
-        correct: 1,
+        correctAnswer: 2,
     },
     {
         question: "Which CSS unit adapts an element's size to the width of the window?",
@@ -117,7 +119,7 @@ export const Questions: Questions[] = [
             "vw",
             "pt"
         ],
-        correct: 1,
+        correctAnswer: 2,
     },
 ];
 
