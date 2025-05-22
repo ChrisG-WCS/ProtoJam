@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 type Question = {
   id: number;
@@ -18,10 +19,19 @@ const Card: React.FC<CardProps> = ({ question }) => {
     return <p>Question introuvable</p>;
   }
 
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const currentId = parseInt(id || "1");
+
   const handleClick = (option: string) => {
     setSelectedOption(option);
     const isCorrect = option === question.answer;
     alert(isCorrect ? "Bonne réponse !" : "Mauvaise réponse !");
+
+    setTimeout(() => {
+      const nextId = currentId + 1;
+      navigate(`/quiz/${nextId}`);
+    }, 1000);
   };
 
   return (

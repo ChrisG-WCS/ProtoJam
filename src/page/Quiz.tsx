@@ -13,7 +13,11 @@ const Quiz = () => {
       <h1>ICI LE QUIZ</h1>
       <p>Prépare-toi à tester tes connaissances !</p>
       <LivesDisplay />
-      {question ? <Card question={question} /> : <p>Question introuvable</p>}
+      {question ? (
+        <Card key={question.id} question={question} />
+      ) : (
+        <p>Question introuvable</p>
+      )}
     </section>
   );
 };
