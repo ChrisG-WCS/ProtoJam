@@ -1,6 +1,8 @@
 import styles from "./GameOver.module.css";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import continueGif from "../images/Continue.gif";
+import gameoverSound from "../assets/sounds/gameover.mp3"; // importe le son
 
 const GameOver = () => {
   const navigate = useNavigate();
@@ -8,6 +10,11 @@ const GameOver = () => {
   const handleRestart = () => {
     navigate("/quiz/1");
   };
+
+  useEffect(() => {
+    const audio = new Audio(gameoverSound);
+    audio.play();
+  }, []);
 
   return (
     <>
@@ -18,9 +25,9 @@ const GameOver = () => {
       </p>
       <img
         src={continueGif}
-        alt="Recommencer le quiz"
-        style={{ cursor: "pointer", width: "150px" }}
+        alt="Recommencer"
         onClick={handleRestart}
+        style={{ cursor: "pointer", width: "150px" }}
       />
     </>
   );
