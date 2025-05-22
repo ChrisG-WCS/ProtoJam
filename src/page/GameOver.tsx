@@ -20,8 +20,8 @@ const GameOver = () => {
     <>
       <h1 className={styles.gameLose}>Game Over</h1>
       <p>
-        PFFFFFFF!!!! <br />
-        La prochaine fois, tu réfléchis avant de répondre
+        PAF !!! T’as perdu tous tes rings ! <br />
+        T’as foncé comme Sonic… mais sans réfléchir !
       </p>
       <img
         src={continueGif}
