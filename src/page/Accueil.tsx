@@ -5,7 +5,7 @@ const Accueil = () => {
   return (
     <section>
       <h1 className={styles.firstTitle}>WELCOME</h1>
-      <Link to="/quiz" className={styles.buttonStart}>
+      <Link to="/quiz/1" className={styles.buttonStart}>
         start
       </Link>
     </section>

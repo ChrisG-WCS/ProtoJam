@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import Accueil from "./page/Accueil.tsx";
 import Quiz from "./page/Quiz.tsx";
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/gameover",
         element: <GameOver />,
+      },
+      {
+        path: "/quiz",
+        element: <Navigate to="/quiz/1" replace />,
       },
     ],
   },

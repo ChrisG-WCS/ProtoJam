@@ -40,14 +40,15 @@ const Card: React.FC<CardProps> = ({ question }) => {
                   border: "1px solid #007bff",
                   borderRadius: "5px",
                   backgroundColor: isSelected
-                    ? isCorrect
+                      ? isCorrect
                       ? "#d4edda" // vert clair si bonne réponse
                       : "#f8d7da" // rouge clair si mauvaise réponse
-                    : "#fff",
+                      : "#fff",
                   cursor: "pointer",
                 }}
                 onClick={() => handleClick(option)}
                 disabled={selectedOption !== null} // bloque après un choix
+                
               >
                 {option}
               </button>
@@ -60,6 +61,8 @@ const Card: React.FC<CardProps> = ({ question }) => {
 };
 
 export default Card;
+
+
 
 
 
