@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import styles from "./Accueil.module.css";
 
 const Accueil = () => {
   return (
-    <>
-      <section>
-        <h1 className={styles.firstTitle}>WELCOME</h1>;
-        <button className={styles.buttonStart}>start</button>
-      </section>
-    </>
+    <section>
+      <h1 className={styles.firstTitle}>WELCOME</h1>
+      <Link to="/quiz" className={styles.buttonStart}>
+        start
+      </Link>
+    </section>
   );
 };
 
