@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element: <Accueil />,
       },
       {
-        path: "/quiz",
+        path: "/quiz/:id",
         element: <Quiz />,
       },
       {
