@@ -9,6 +9,7 @@ import App from "./App.tsx";
 import Accueil from "./page/Accueil.tsx";
 import Quiz from "./page/Quiz.tsx";
 import GameOver from "./page/GameOver.tsx";
+import Congratulation from "./page/Congratulation.tsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
       {
         path: "/gameover",
         element: <GameOver />,
+      },
+
+      {
+        path: "/congratulation",
+        element: <Congratulation />,
       },
       {
         path: "/quiz",

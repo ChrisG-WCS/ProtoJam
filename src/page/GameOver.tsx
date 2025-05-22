@@ -2,7 +2,7 @@ import styles from "./GameOver.module.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import continueGif from "../images/Continue.gif";
-import gameoverSound from "../assets/sounds/gameover.mp3"; // importe le son
+import gameoverSound from "../assets/sounds/gameover.mp3";
 
 const GameOver = () => {
   const navigate = useNavigate();
