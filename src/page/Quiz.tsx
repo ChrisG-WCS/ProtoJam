@@ -1,15 +1,19 @@
-import LivesDisplay from "../components/LivesDisplay";
 import { useParams } from "react-router-dom";
+import questions from "../data/Questions";
+import Card from "../components/Card";
+import LivesDisplay from "../components/LivesDisplay";
 
 const Quiz = () => {
   const { id } = useParams();
+  const questionId = Number(id);
+  const question = questions.find((q) => q.id === questionId);
 
   return (
     <section style={{ padding: "2rem", textAlign: "center" }}>
       <h1>ICI LE QUIZ</h1>
       <p>Prépare-toi à tester tes connaissances !</p>
-      <p>Question numéro {id}</p>
       <LivesDisplay />
+      {question ? <Card question={question} /> : <p>Question introuvable</p>}
     </section>
   );
 };
