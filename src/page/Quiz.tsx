@@ -1,4 +1,4 @@
-export const Quiz = () => {
+const Quiz = () => {
   return (
     <>
       <section style={{ padding: "2rem", textAlign: "center" }}>
@@ -8,3 +8,4 @@ export const Quiz = () => {
     </>
   );
 };
+export default Quiz;
