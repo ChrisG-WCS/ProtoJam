@@ -5,7 +5,6 @@ const Accueil = () => {
     <>
       <section>
         <h1 className={styles.firstTitle}>WELCOME</h1>
-        <h1 className={styles.firstTitle}>WELCOME</h1>;
         <button className={styles.buttonStart}>start</button>
       </section>
     </>
