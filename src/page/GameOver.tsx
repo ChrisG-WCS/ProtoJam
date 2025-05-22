@@ -1,5 +1,6 @@
 import styles from "./GameOver.module.css";
 import { useNavigate } from "react-router-dom";
+import continueGif from "../images/Continue.gif";
 
 const GameOver = () => {
   const navigate = useNavigate();
@@ -15,7 +16,12 @@ const GameOver = () => {
         PFFFFFFF!!!! <br />
         La prochaine fois, tu réfléchis avant de répondre
       </p>
-      <button onClick={handleRestart}>Recommencer le quiz</button>
+      <img
+        src={continueGif}
+        alt="Recommencer le quiz"
+        style={{ cursor: "pointer", width: "150px" }}
+        onClick={handleRestart}
+      />
     </>
   );
 };
