@@ -39,12 +39,13 @@ const Card: React.FC<CardProps> = ({ question }) => {
     }
 
     const nextLives = isCorrect ? lives : lives - 1;
+    const madeMistake = hasMistake || !isCorrect;
 
     setTimeout(() => {
       if (nextLives <= 0) {
         navigate("/gameover");
       } else if (currentId === 10) {
-        if (hasMistake) {
+        if (madeMistake) {
           navigate("/almostperfect");
         } else {
           navigate("/congratulation");
