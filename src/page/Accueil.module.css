@@ -1,12 +1,33 @@
 * {
   background-color: yellow;
+  font-family: "pixelify Sans", sans-serif;
 }
 body {
-  font-family: "pixelify Sans", sans-serif;
-  color: blueviolet;
   margin: 0;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+}
+
+.firstTitle {
+  color: blueviolet;
+  font-size: 48px;
+}
+.buttonStart {
+  border-color: transparent;
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }

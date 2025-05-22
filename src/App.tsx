@@ -1,9 +1,9 @@
-import { Accueil } from "./page/Accueil";
+import { Outlet } from "react-router";
 
 const App = () => {
   return (
     <>
-      <Accueil />
+      <Outlet />
     </>
   );
 };
