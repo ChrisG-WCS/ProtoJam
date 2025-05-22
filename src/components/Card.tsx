@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useLives } from "../context/LivesContext";
 
 type Question = {
   id: number;
@@ -14,23 +15,34 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ question }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const currentId = parseInt(id || "1");
+  const { lives, loseLife } = useLives();
 
   if (!question) {
     return <p>Question introuvable</p>;
   }
 
-  const navigate = useNavigate();
-  const { id } = useParams();
-  const currentId = parseInt(id || "1");
-
   const handleClick = (option: string) => {
+    if (selectedOption !== null) return;
+
     setSelectedOption(option);
     const isCorrect = option === question.answer;
     alert(isCorrect ? "Bonne réponse !" : "Mauvaise réponse !");
 
+    const nextLives = isCorrect ? lives : lives - 1;
+
+    if (!isCorrect) {
+      loseLife();
+    }
+
     setTimeout(() => {
-      const nextId = currentId + 1;
-      navigate(`/quiz/${nextId}`);
+      if (nextLives <= 0) {
+        navigate("/gameover");
+      } else {
+        navigate(`/quiz/${currentId + 1}`);
+      }
     }, 1000);
   };
 
