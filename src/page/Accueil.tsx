@@ -4,7 +4,7 @@ export const Accueil = () => {
   return (
     <>
       <section>
-        <h1 className={styles.firstTitle}>WELCOME</h1>;
+        <h1 className={styles.firstTitle}>WELCOME</h1>
       </section>
     </>
   );

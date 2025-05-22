@@ -1,10 +1,11 @@
-import { Accueil } from "./page/Accueil";
+import { Outlet } from "react-router-dom";
 
-const App = () => {
+function App() {
   return (
-    <>
-      <Accueil />
-    </>
+    <div>
+      <Outlet />
+    </div>
   );
-};
+}
+
 export default App;
