@@ -15,6 +15,7 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ question }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [hasMistake, setHasMistake] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
   const currentId = parseInt(id || "1");
@@ -28,18 +29,26 @@ const Card: React.FC<CardProps> = ({ question }) => {
     if (selectedOption !== null) return;
 
     setSelectedOption(option);
+
     const isCorrect = option === question.answer;
     alert(isCorrect ? "Bonne réponse !" : "Mauvaise réponse !");
 
-    const nextLives = isCorrect ? lives : lives - 1;
-
     if (!isCorrect) {
       loseLife();
+      setHasMistake(true);
     }
+
+    const nextLives = isCorrect ? lives : lives - 1;
 
     setTimeout(() => {
       if (nextLives <= 0) {
         navigate("/gameover");
+      } else if (currentId === 10) {
+        if (hasMistake) {
+          navigate("/almostperfect");
+        } else {
+          navigate("/congratulation");
+        }
       } else {
         navigate(`/quiz/${currentId + 1}`);
       }
