@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./Accueil.module.css";
 import sega from "../images/sega.gif";
 import segaSound from "../assets/sounds/Sg.mp3";
+import title from "../images/Gota_go_Code-removebg-preview.png";
 
 const Accueil = () => {
   const [audio] = useState(new Audio(segaSound));
@@ -13,7 +14,15 @@ const Accueil = () => {
 
   return (
     <section style={{ textAlign: "center" }}>
-      <h1 className={styles.firstTitle}>GOTA GO CODE</h1>;
+      <h1>
+        <img
+          src={title}
+          alt="GOTA GO CODE"
+          className={styles.title}
+          style={{ width: "400px", height: "auto" }}
+        />
+      </h1>
+      ;
       <img
         src={sega}
         alt="Welcome animation"
