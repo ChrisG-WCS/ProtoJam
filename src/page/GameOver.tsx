@@ -19,7 +19,7 @@ const GameOver = () => {
   return (
     <>
       <h1 className={styles.gameLose}>Game Over</h1>
-      <p>
+      <p className={styles.gameOver}>
         PAF !!! T’as perdu tous tes rings ! <br />
         T’as foncé comme Sonic… mais sans réfléchir !
       </p>
@@ -27,7 +27,7 @@ const GameOver = () => {
         src={continueGif}
         alt="Recommencer"
         onClick={handleRestart}
-        style={{ cursor: "pointer", width: "150px" }}
+        style={{ cursor: "pointer", width: "10rem" }}
       />
     </>
   );

@@ -17,10 +17,10 @@ const Congratulation = () => {
 
   return (
     <div>
-      <h1>Bravo !</h1>
+      <h1 style={{fontSize: "3rem"}}>Bravo !</h1>
       <img src={sonicVictory} alt="Sonic qui célèbre" />
-      <p>Tu l’as fait sans faute, gotta go fast !🔥</p>
-      <button onClick={handleRestart}>Recommencer</button>
+      <p style={{fontSize: "1.4rem"}}>Tu l’as fait sans faute, gotta go fast !🔥</p>
+      <button onClick={handleRestart} style={{height: "3rem", fontSize: "1rem", background: "blue", color: "white"}}>Recommencer</button>
     </div>
   );
 };

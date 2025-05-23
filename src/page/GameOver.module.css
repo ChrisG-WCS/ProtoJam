@@ -1,4 +1,8 @@
 .gameLose {
-  font-size: 58px;
-  color: blueviolet;
+  font-size: 6rem;
+  color: blue;
+}
+
+.gameOver {
+  font-size: 1.2rem;
 }
