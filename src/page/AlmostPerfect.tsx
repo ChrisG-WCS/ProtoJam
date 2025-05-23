@@ -25,7 +25,7 @@ const AlmostPerfect = () => {
         style={{ maxWidth: "300px", marginBottom: "1rem" }}
       />
       <p>
-        Tu as encore des vies, mais pas sans faute... Reviens plus fort pour
+        Tu as encore des vies, mais pas un sans faute... Reviens plus fort pour
         faire un score parfait !
       </p>
       <img
