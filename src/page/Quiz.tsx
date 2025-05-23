@@ -12,8 +12,6 @@ const Quiz = () => {
   return (
     <LivesProvider>
       <section style={{ padding: "2rem", textAlign: "center" }}>
-        <h1>ICI LE QUIZ</h1>
-        <p>Prépare-toi à tester tes connaissances !</p>
         <LivesDisplay />
         {question ? (
           <Card key={question.id} question={question} />
