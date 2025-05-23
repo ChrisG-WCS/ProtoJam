@@ -37,11 +37,10 @@ const Card: React.FC<CardProps> = ({ question }) => {
     setIsCorrect(correct);
     setFeedback(correct ? "Bonne réponse !" : "Mauvaise réponse !");
 
-    let mistakeMade = hasMistake; // garde l'état précédent
-
+    let mistakeMade = hasMistake;
     if (!correct) {
       loseLife();
-      mistakeMade = true; // on note la faute pour la session
+      mistakeMade = true;
       setHasMistake(true);
     }
 
@@ -79,8 +78,8 @@ const Card: React.FC<CardProps> = ({ question }) => {
                   borderRadius: "5px",
                   backgroundColor: isSelected
                     ? correctOption
-                      ? "#d4edda" // vert clair
-                      : "#f8d7da" // rouge clair
+                      ? "#d4edda"
+                      : "#f8d7da"
                     : "#fff",
                   cursor: selectedOption === null ? "pointer" : "default",
                   pointerEvents: selectedOption !== null ? "none" : "auto",
