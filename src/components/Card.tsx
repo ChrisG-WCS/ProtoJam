@@ -36,8 +36,12 @@ const Card: React.FC<CardProps> = ({ question }) => {
     const correct = option === question.answer;
     setIsCorrect(correct);
     setFeedback(correct ? "Bonne réponse !" : "Mauvaise réponse !");
+
+    let mistakeMade = hasMistake; // garde l'état précédent
+
     if (!correct) {
       loseLife();
+      mistakeMade = true; // on note la faute pour la session
       setHasMistake(true);
     }
 
@@ -47,7 +51,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
       if (nextLives <= 0) {
         navigate("/gameover");
       } else if (currentId === 10) {
-        if (hasMistake) {
+        if (mistakeMade) {
           navigate("/almostperfect");
         } else {
           navigate("/congratulation");
