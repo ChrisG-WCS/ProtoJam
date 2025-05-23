@@ -65,7 +65,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
 
   return (
     <div className={style.cardContainer}>
-    <div className={style.quizQuestion}>{question.text}</div>
+    <h2 className={style.quizQuestion}>{question.text}</h2>
     <ul className={style.optionsList}>
         {question.options.map((option, index) => {
           const isSelected = selectedOption === option;
@@ -81,7 +81,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
                   border: "1px solid #007bff",
                   borderRadius: "5px",
                   backgroundColor: isSelected
-                      ? isCorrect
+                      ? correctOption
                       ? "#11c914" 
                       : "#ff3200" 
                       : "#fff",
@@ -89,7 +89,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
                   pointerEvents: selectedOption !== null ? "none" : "auto",
                 }}
                 onClick={() => handleClick(option)}
-                disabled={selectedOption !== null} // bloque après un choix                
+                disabled={selectedOption !== null}                 
               >
                 {option}
               </button>
