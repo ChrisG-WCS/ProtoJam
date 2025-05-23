@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLives } from "../context/LivesContext";
+import loseLifeSound from "../assets/sounds/LoseLifeSound.mp3";
 
 type Question = {
   id: number;
@@ -17,19 +18,18 @@ const Card: React.FC<CardProps> = ({ question }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const mistakeMade = useRef(false); // Garde en mémoire si une faute a été faite
 
   const navigate = useNavigate();
   const { id } = useParams();
   const currentId = parseInt(id || "1");
-  const { lives, loseLife } = useLives();
+  const { lives, loseLife, mistakeMade, setMistakeMade } = useLives();
 
   if (!question) {
     return <p>Question introuvable</p>;
   }
 
   const handleClick = (option: string) => {
-    if (selectedOption !== null) return; // Empêche de changer après sélection
+    if (selectedOption !== null) return;
 
     setSelectedOption(option);
 
@@ -39,7 +39,10 @@ const Card: React.FC<CardProps> = ({ question }) => {
 
     if (!correct) {
       loseLife();
-      mistakeMade.current = true; // On note la faute immédiatement
+      setMistakeMade(true);
+
+      const audio = new Audio(loseLifeSound);
+      audio.play().catch(() => {});
     }
 
     const nextLives = correct ? lives : lives - 1;
@@ -48,7 +51,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
       if (nextLives <= 0) {
         navigate("/gameover");
       } else if (currentId === 10) {
-        if (mistakeMade.current) {
+        if (mistakeMade) {
           navigate("/almostperfect");
         } else {
           navigate("/congratulation");

@@ -1,50 +1,37 @@
-import { createContext, useState, useContext, useCallback } from "react";
-import type { ReactNode } from "react";
-import LoseLifeSound from "../assets/sounds/LoseLifeSound.mp3";
+import { createContext, useState, useContext } from "react";
 
-interface LivesContextType {
+type LivesContextType = {
   lives: number;
   loseLife: () => void;
-  resetLives: () => void;
-}
+  mistakeMade: boolean;
+  setMistakeMade: (value: boolean) => void;
+};
 
-const LivesContext = createContext<LivesContextType | null>(null);
+const LivesContext = createContext<LivesContextType | undefined>(undefined);
 
-interface LivesProviderProps {
-  children: ReactNode;
-}
+export const LivesProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [lives, setLives] = useState(3);
+  const [mistakeMade, setMistakeMade] = useState(false);
 
-export const LivesProvider: React.FC<LivesProviderProps> = ({ children }) => {
-  const [lives, setLives] = useState<number>(3);
-
-  // Création de l'objet audio une seule fois
-  const loseLifeAudio = new Audio(LoseLifeSound);
-
-  const loseLife = useCallback(() => {
-    // joue le son quand on perd une vie
-    loseLifeAudio.play().catch(() => {
-      // gère le cas où le navigateur bloque l'autoplay
-      console.log("Impossible de jouer le son lose life automatiquement");
-    });
-
-    setLives((prev) => (prev > 0 ? prev - 1 : 0));
-  }, [loseLifeAudio]);
-
-  const resetLives = useCallback(() => {
-    setLives(3);
-  }, []);
-
-  const value = { lives, loseLife, resetLives };
+  const loseLife = () => {
+    setLives((prev) => Math.max(prev - 1, 0));
+  };
 
   return (
-    <LivesContext.Provider value={value}>{children}</LivesContext.Provider>
+    <LivesContext.Provider
+      value={{ lives, loseLife, mistakeMade, setMistakeMade }}
+    >
+      {children}
+    </LivesContext.Provider>
   );
 };
 
-export const useLives = (): LivesContextType => {
+export const useLives = () => {
   const context = useContext(LivesContext);
   if (!context) {
-    throw new Error("useLives doit être utilisé dans un LivesProvider");
+    throw new Error("useLives must be used within a LivesProvider");
   }
   return context;
 };

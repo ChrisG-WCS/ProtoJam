@@ -19,7 +19,7 @@ const Congratulation = () => {
     <div>
       <h1>Bravo !</h1>
       <img src={sonicVictory} alt="Sonic qui célèbre" />
-      <p>Tu l’as fait sans faute, comme Sonic en pleine course ! 🔥</p>
+      <p>Tu l’as fait sans faute, gotta go fast !🔥</p>
       <button onClick={handleRestart}>Recommencer</button>
     </div>
   );
