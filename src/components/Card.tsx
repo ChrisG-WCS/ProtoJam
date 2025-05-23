@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLives } from "../context/LivesContext";
+import loseLifeSound from "../assets/sounds/LoseLifeSound.mp3";
 
 type Question = {
   id: number;
@@ -17,12 +18,11 @@ const Card: React.FC<CardProps> = ({ question }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [hasMistake, setHasMistake] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
   const currentId = parseInt(id || "1");
-  const { lives, loseLife } = useLives();
+  const { lives, loseLife, mistakeMade, setMistakeMade } = useLives();
 
   if (!question) {
     return <p>Question introuvable</p>;
@@ -37,11 +37,12 @@ const Card: React.FC<CardProps> = ({ question }) => {
     setIsCorrect(correct);
     setFeedback(correct ? "Bonne réponse !" : "Mauvaise réponse !");
 
-    let mistakeMade = hasMistake;
     if (!correct) {
       loseLife();
-      mistakeMade = true;
-      setHasMistake(true);
+      setMistakeMade(true);
+
+      const audio = new Audio(loseLifeSound);
+      audio.play().catch(() => {});
     }
 
     const nextLives = correct ? lives : lives - 1;
