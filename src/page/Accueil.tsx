@@ -13,6 +13,7 @@ const Accueil = () => {
 
   return (
     <section style={{ textAlign: "center" }}>
+      <h1 className={styles.firstTitle}>GOTA GO CODE</h1>;
       <img
         src={sega}
         alt="Welcome animation"
