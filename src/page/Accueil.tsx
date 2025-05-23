@@ -22,7 +22,7 @@ const Accueil = () => {
           style={{ width: "400px" }}
         />
       </h1>
-      ;
+
       <img
         src={sega}
         alt="Welcome animation"
