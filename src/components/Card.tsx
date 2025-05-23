@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLives } from "../context/LivesContext";
 
@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-  const [hasMistake, setHasMistake] = useState(false);
+  const mistakeMade = useRef(false); // Garde en mémoire si une faute a été faite
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
   }
 
   const handleClick = (option: string) => {
-    if (selectedOption !== null) return;
+    if (selectedOption !== null) return; // Empêche de changer après sélection
 
     setSelectedOption(option);
 
@@ -37,11 +37,9 @@ const Card: React.FC<CardProps> = ({ question }) => {
     setIsCorrect(correct);
     setFeedback(correct ? "Bonne réponse !" : "Mauvaise réponse !");
 
-    let mistakeMade = hasMistake;
     if (!correct) {
       loseLife();
-      mistakeMade = true;
-      setHasMistake(true);
+      mistakeMade.current = true; // On note la faute immédiatement
     }
 
     const nextLives = correct ? lives : lives - 1;
@@ -50,7 +48,7 @@ const Card: React.FC<CardProps> = ({ question }) => {
       if (nextLives <= 0) {
         navigate("/gameover");
       } else if (currentId === 10) {
-        if (mistakeMade) {
+        if (mistakeMade.current) {
           navigate("/almostperfect");
         } else {
           navigate("/congratulation");
