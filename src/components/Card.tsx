@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLives } from "../context/LivesContext";
 import loseLifeSound from "../assets/sounds/LoseLifeSound.mp3";
+import style from "./Card.module.css";
 
 type Question = {
   id: number;
@@ -63,9 +64,12 @@ const Card: React.FC<CardProps> = ({ question }) => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>{question.text}</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+    <div className={style.cardContainer}>
+      <h2 className={style.quizQuestion}>{question.text}</h2>
+      <ul
+        style={{ listStyle: "none", padding: 0 }}
+        className={style.optionsList}
+      >
         {question.options.map((option, index) => {
           const isSelected = selectedOption === option;
           const correctOption = option === question.answer;
@@ -74,13 +78,14 @@ const Card: React.FC<CardProps> = ({ question }) => {
             <li key={index} style={{ margin: "0.5rem 0" }}>
               <button
                 style={{
+                  width: "25rem",
+                  fontSize: "1.2rem",
                   padding: "0.5rem 1rem",
                   border: "1px solid #007bff",
-                  borderRadius: "5px",
                   backgroundColor: isSelected
                     ? correctOption
-                      ? "#d4edda"
-                      : "#f8d7da"
+                      ? "#78f3a5"
+                      : "#fd7272"
                     : "#fff",
                   cursor: selectedOption === null ? "pointer" : "default",
                   pointerEvents: selectedOption !== null ? "none" : "auto",
