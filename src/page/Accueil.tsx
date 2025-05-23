@@ -19,7 +19,7 @@ const Accueil = () => {
           src={title}
           alt="GOTA GO CODE"
           className={styles.title}
-          style={{ width: "400px", height: "auto" }}
+          style={{ width: "400px" }}
         />
       </h1>
       ;
@@ -27,13 +27,13 @@ const Accueil = () => {
         src={sega}
         alt="Welcome animation"
         className={styles.welcomeGif}
-        style={{ width: "300px", height: "auto", cursor: "pointer" }}
+        style={{ width: "200px", height: "auto", cursor: "pointer" }}
         onClick={playSound}
       />
       <Link
         to="/quiz/1"
         className={styles.buttonStart}
-        style={{ display: "block", marginTop: "20px" }}
+        style={{ display: "block", textAlign: "center" }}
       >
         start
       </Link>
