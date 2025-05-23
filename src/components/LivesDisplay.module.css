@@ -1,0 +1,11 @@
+.livesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.3rem 0 2rem 0; 
+  }
+  
+  .hearts {
+    font-size: 1.7rem; 
+    letter-spacing: 0.2rem;
+  }

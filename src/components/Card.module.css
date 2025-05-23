@@ -1,0 +1,34 @@
+.cardContainer {
+    max-width: 480px;
+    margin: 2rem auto;
+    padding: 2.5rem 2rem;
+    border: 4px solid #39e5ff;
+    border-radius: 28px;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.15);
+    background: #9000a0; 
+  }
+  
+  .quizQuestion {
+    background: transparent; 
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 9px;
+  }
+  
+  .optionsList {
+    background: transparent; 
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
+  
+  

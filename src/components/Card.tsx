@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from "./Card.module.css"
 
 type Question = {
   id: number;
@@ -25,9 +26,9 @@ const Card: React.FC<CardProps> = ({ question }) => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>{question.text}</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+    <div className={style.cardContainer}>
+    <div className={style.quizQuestion}>{question.text}</div>
+    <ul className={style.optionsList}>
         {question.options.map((option, index) => {
           const isSelected = selectedOption === option;
           const isCorrect = option === question.answer;
@@ -36,13 +37,15 @@ const Card: React.FC<CardProps> = ({ question }) => {
             <li key={index} style={{ margin: "0.5rem 0" }}>
               <button
                 style={{
+                  width: "15rem",
+                  fontSize: "1rem",
                   padding: "0.5rem 1rem",
                   border: "1px solid #007bff",
                   borderRadius: "5px",
                   backgroundColor: isSelected
                       ? isCorrect
-                      ? "#d4edda" // vert clair si bonne réponse
-                      : "#f8d7da" // rouge clair si mauvaise réponse
+                      ? "#11c914" // vert clair si bonne réponse
+                      : "#ff3200" // rouge clair si mauvaise réponse
                       : "#fff",
                   cursor: "pointer",
                 }}
@@ -61,6 +64,10 @@ const Card: React.FC<CardProps> = ({ question }) => {
 };
 
 export default Card;
+
+
+
+
 
 
 
