@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLives } from "../context/LivesContext";
-import loseLifeSound from "../assets/sounds/LoseLifeSound.mp3";
+import loseLifeSound from "/sounds/LoseLifeSound.mp3";
 import style from "./Card.module.css";
 
 type Question = {

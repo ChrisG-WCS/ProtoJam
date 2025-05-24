@@ -4,7 +4,7 @@ import questions from "../data/Questions";
 import Card from "../components/Card";
 import LivesDisplay from "../components/LivesDisplay";
 import { LivesProvider } from "../context/LivesContext";
-import QuizSound from "../assets/sounds/QuizSound.mp3";
+import QuizSound from "/sounds/QuizSound.mp3";
 
 const Quiz = () => {
   const { id } = useParams();

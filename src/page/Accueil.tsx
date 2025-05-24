@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Accueil.module.css";
-import sega from "../images/sega.gif";
-import segaSound from "../assets/sounds/Sg.mp3";
-import title from "../images/Gota_go_Code-removebg-preview.png";
+import sega from "/images/sega.gif";
+import segaSound from "/sounds/Sg.mp3";
+import title from "/images/Gota_go_Code-removebg-preview.png";
 
 const Accueil = () => {
   const [audio] = useState(new Audio(segaSound));

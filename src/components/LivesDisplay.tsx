@@ -1,12 +1,15 @@
 import { useLives } from "../context/LivesContext";
-import sonicRing from "../images/sonic-ring-sonic.gif";
+import sonicRing from "/images/sonic-ring-sonic.gif";
 import style from "./LivesDisplay.module.css";
 
 const LivesDisplay = () => {
   const { lives } = useLives();
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }} className={style.livesContainer}>
+    <div
+      style={{ display: "flex", alignItems: "center" }}
+      className={style.livesContainer}
+    >
       {Array.from({ length: lives }).map((_, i) => (
         <img
           key={i}

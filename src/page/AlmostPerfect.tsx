@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import sonicAlmostPerfect from "../images/AlmostPerfect.gif";
-import continueSound from "../assets/sounds/continue.mp3";
-import continueGif from "../images/Continue.gif";
+import sonicAlmostPerfect from "/images/AlmostPerfect.gif";
+import continueSound from "/sounds/continue.mp3";
+import continueGif from "/images/Continue.gif";
 
 const AlmostPerfect = () => {
   const navigate = useNavigate();
